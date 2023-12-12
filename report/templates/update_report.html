@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+
+{% block contents  %}
+<div class="my-32 md:mx-80 mx-10 md:p-12 p-5 bg-white rounded-lg">
+    <h1 class="text-3xl text-center font-sans font-extrabold">WEEKLY REPORT</h1>
+    <br/>
+    <br/>
+    <form method="post" class="md:mx-20 mx-12">
+        {% csrf_token %}
+        <label
+        class="font-sans font-bold text-black text-left">Report by :
+            <input type="text" name="user" class="md:rounded rounded-2xl md:px-10 px-5" id="report_by" placeholder="Report by">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Supervisor :
+            <input type="text" name="supervisor" class="md:rounded rounded-2xl md:px-10 px-5" id="supervisor" placeholder="Supervisor">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">TOPICS COVERED FOR EACH DAY OF THE WEEK</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Monday :
+            <input type="text" name="monday" class="md:rounded rounded-2xl md:px-10 px-5" id="monday" placeholder="Monday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Tuesday :
+            <input type="text" name="tuesday" class="md:rounded rounded-2xl md:px-10 px-5" id="tuesday" placeholder="Tuesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Wednesday :
+            <input type="text" name="wednessday" class="md:rounded rounded-2xl md:px-10 px-5" id="wednessday" placeholder="Wednessday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Thursday :
+            <input type="text" name="thursday" class="md:rounded rounded-2xl md:px-10 px-5" id="thursday" placeholder="Thursday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Friday :
+            <input type="text" name="friday" class="md:rounded rounded-2xl md:px-10 px-5" id="friday" placeholder="Friday">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">ASSIGNMENT GIVEN FOR EACH DAY OF THE WEEK</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Monday :
+            <input type="text" name="monday1" class="md:rounded rounded-2xl md:px-10 px-5" id="monday1" placeholder="Monday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Tuesday :
+            <input type="text" name="tuesday1" class="md:rounded rounded-2xl md:px-10 px-5" id="tuesday1" placeholder="Tuesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Wednesday :
+            <input type="text" name="wednessday1" class="md:rounded rounded-2xl md:px-10 px-5" id="wednessday1" placeholder="Wednessday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Thursday :
+            <input type="text" name="thursday1" class="md:rounded rounded-2xl md:px-10 px-5" id="thursday1" placeholder="Thursday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Friday :
+            <input type="text" name="friday1" class="md:rounded rounded-2xl md:px-10 px-5" id="friday1" placeholder="Friday">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">PROJECTS GIVEN FOR THE WEEK</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Projects :
+            <input type="number" name="projects" class="md:rounded rounded-2xl md:px-10 px-5" id="projects" placeholder="Projects">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">NOTE/STUDY MATERIALS GIVEN TO THE STUDENT FOR THE WEEK</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Materials :
+            <input type="number" name="study_materials" class="md:rounded rounded-2xl md:px-10 px-5" id="study_materials" placeholder="Study Materials">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">SUCCESS RATING FOR THE WEEK</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Rating :
+            <input type="number" name="rating" class="md:rounded rounded-2xl md:px-10 px-5" id="rating" placeholder="Rating">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">CHALLENGES FACED ON DUTY</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Challenges :
+            <input type="text" name="challenges" class="md:rounded rounded-2xl md:px-10 px-5" id="challenges" placeholder="Challenges">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">DAILY RESUMPTION TIME</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Monday :
+            <input type="time" name="monday2" class="md:rounded rounded-2xl md:px-10 px-5" id="monday2" placeholder="Monday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Tuesday :
+            <input type="time" name="tuesday2" class="md:rounded rounded-2xl md:px-10 px-5" id="tuesday2" placeholder="Tuesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Wednesday :
+            <input type="time" name="wednessday2" class="md:rounded rounded-2xl md:px-10 px-5" id="wednessday2" placeholder="Wednesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Thursday :
+            <input type="time" name="thursday2" class="md:rounded rounded-2xl md:px-10 px-5" id="thursday2" placeholder="Thursday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Friday :
+            <input type="time" name="friday2" class="md:rounded rounded-2xl md:px-10 px-5" id="friday2" placeholder="Friday">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">SOCIAL MEDIA POSTING</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">WhatsApp :
+            <input type="number" name="whatsapp" class="md:rounded rounded-2xl md:px-10 px-5" id="whatsapp" placeholder="WhatsApp">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Facebook :
+            <input type="number" name="facebook" class="md:rounded rounded-2xl md:px-10 px-5" id="facebook" placeholder="Facebook">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Twitter :
+            <input type="number" name="twitter" class="md:rounded rounded-2xl md:px-10 px-5" id="twitter" placeholder="Twitter">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Instagram :
+            <input type="number" name="instagram" class="md:rounded rounded-2xl md:px-10 px-5" id="instagram" placeholder="Instagram">
+        </label>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">TOPICS FOR NEXT WEEK</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Monday :
+            <input type="text" name="monday3" class="md:rounded rounded-2xl md:px-10 px-5" id="monday3" placeholder="Monday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Tuesday :
+            <input type="text" name="tuesday3" class="md:rounded rounded-2xl md:px-10 px-5" id="tuesday3" placeholder="Tuesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Wednesday :
+            <input type="text" name="wednessday3" class="md:rounded rounded-2xl md:px-10 px-5" id="wednessday3" placeholder="Wednessday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Thursday :
+            <input type="text" name="thursday3" class="md:rounded rounded-2xl md:px-10 px-5" id="thursday3" placeholder="Thursday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Friday :
+            <input type="text" name="friday3" class="md:rounded rounded-2xl md:px-10 px-5" id="friday3" placeholder="Friday">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">SUGGESTIONS TO MANAGEMENT</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Sugestions :
+            <input type="text" name="sugestions" class="md:rounded rounded-2xl md:px-10 px-5" id="sugestions" placeholder="Sugestion">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">DURATION REMAINING FOR TRAINING</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Total Weeks :
+            <input type="text" name="total_weeks" class="md:rounded rounded-2xl md:px-10 px-5" id="total_weeks" placeholder="Total Weeks">
+        </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 class="text-lg text-center font-sans font-extrabold">PARTICIPATION IN STAFF WHATSAPP GROUP</h3>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Monday :
+            <input type="text" name="monday4" class="md:rounded rounded-2xl md:px-10 px-5" id="monday4" placeholder="Monday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Tuesday :
+            <input type="text" name="tuesday4" class="md:rounded rounded-2xl md:px-10 px-5" id="tuesday4" placeholder="Tuesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Wednesday :
+            <input type="text" name="wednessday4" class="md:rounded rounded-2xl md:px-10 px-5" id="wednessday4" placeholder="Wednesday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Thursday :
+            <input type="text" name="thursday4" class="md:rounded rounded-2xl md:px-10 px-5" id="thursday4" placeholder="Thursday">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Friday :
+            <input type="text" name="friday4" class="md:rounded rounded-2xl md:px-10 px-5" id="friday4" placeholder="Friday">
+        </label>
+        <br/>
+        <br/>
+        <button 
+        type='submit'
+        class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:px-14 px-10 text-center font-sans font-bold border"
+        >
+        Submit
+        </button>
+    </form>
+</div>
+{% endblock  %}

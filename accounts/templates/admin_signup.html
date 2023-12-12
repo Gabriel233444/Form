@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+
+{% block contents %} 
+<div class="my-32 md:mx-80 mx-12 p-5 bg-white rounded-lg">
+    <h1 class="text-3xl text-center font-sans font-extrabold">ADMIN SIGN UP</h1>
+    <br/>
+    <br/>
+    <form method="post" class="md:mx-20 mx-8">
+        {% csrf_token %}
+        <label
+        class="font-sans font-bold text-black text-left">Username:
+            <input
+            class="md:rounded rounded-2xl px-10" 
+            id="username" 
+            placeholder="Username"
+            type="text"  
+            name="username">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Email:
+            <input 
+            class="md:rounded rounded-2xl px-10" 
+            id="email"
+            placeholder="Email"
+            type="email" 
+            name="email">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Password:
+            <input
+            class="md:rounded rounded-2xl px-10"
+            id="password" 
+            placeholder="Password"
+            type="password"  
+            name="password">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Is Staff:
+            <input
+            class="rounded"
+            id="is_staff" 
+            placeholder="Is Staff"
+            type="checkbox"  
+            name="is_staff">
+        </label>
+        <br/>
+        <br/>
+        <label
+        class="font-sans font-bold text-black text-left">Is SuperUser:
+            <input
+            class="rounded"
+            id="is_superuser" 
+            placeholder="Is SuperUser"
+            type="checkbox"  
+            name="is_superuser">
+        </label>
+        <br/>
+        <br/>
+        <button 
+        type="submit"
+        class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 px-14 text-center font-sans font-bold border">
+        Sign up
+        </button>
+    </form>
+</div>
+{% endblock %} 

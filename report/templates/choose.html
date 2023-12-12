@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+
+{% block contents  %}
+<div class="flex my-32 md:mx-80 mx-10 px-5 py-10 bg-white rounded-lg"> 
+    <div class="md:mx-20 mx-10">  
+        <button>
+            <a 
+            href="{% url 'report:report' %}" 
+            class="bg-blue-900 text-white text-sm rounded-2xl mt-3 py-3 md:px-12 px-5 text-center font-sans font-bold border">
+            Fill Report
+            </a>
+        </button>
+    </div>
+    <div class="md:mx-14 mx-5">
+        <button>
+            <a 
+            href="{% url 'report:fileupload' %}" 
+            class="bg-blue-900 text-white text-sm rounded-2xl mt-3 py-3 md:px-12 px-5 text-center font-sans font-bold border">
+            File Upload
+            </a>
+        </button>
+    <div>
+</div>
+{% endblock  %}

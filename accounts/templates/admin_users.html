@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+
+{% block contents %} 
+<div class="my-32 md:mx-80 mx-12 p-5 bg-white rounded-lg">
+    <ul>
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        <div>
+            {% for user in admin %}
+            <li 
+            class="font-sans font-bold text-black text-left">
+            User Name : {{ user.username}}
+            </li>
+            <li
+            class="font-sans font-bold text-black text-left">
+            Email : {{ user.email}}
+            </li>
+            <li 
+            class="font-sans font-bold text-black text-left">
+            Password : *******************
+            </li>
+<<<<<<< HEAD
+            <br/>
+            <div class="flex">
+                <button>
+                    <a 
+                    href="{% url 'accounts:admin_update' pk=user.id %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 ml-1 py-3 md:px-14 px-5 text-center font-sans font-bold border">
+                    Update
+                    </a>
+                </button>
+                <button>
+                    <a 
+                    href="{% url 'accounts:admin_delete' pk=user.id %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 mx-5 py-3 md:px-14 px-5 text-center font-sans font-bold border">
+                    Delete
+                    </a>
+                </button>
+                <button>
+                    <a 
+                    href="{% url 'accounts:admin_logout' %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:px-14 px-3 text-center font-sans font-bold border">
+                    Admin logout
+                    </a>
+                </button>
+            </div>
+            <br/>
+=======
+>>>>>>> 9d404d1debb65a2c3c7c519e724e5374ca0d9874
+            {% endfor %}
+        </div>
+        <br/>
+        {% else %}
+            <!-- Content for non-admin users or users not logged in -->
+            <p>You don't have permission to access this content.</p>
+            <!-- Add more content for non-admin users here -->
+        {% endif %}
+    </ul>
+</div>
+{% endblock %} 

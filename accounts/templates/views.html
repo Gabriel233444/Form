@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+
+{% block contents  %}
+<div class="my-32 md:mx-80 mx-12 px-5 py-14 bg-white rounded-lg"> 
+    <div class="flex">  
+        <button>
+            <a 
+            href="{% url 'accounts:admin_user' %}" 
+            class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:ml-4 md:px-10 px-3 text-center font-sans font-bold border">
+            Admin Users
+            </a>
+        </button>
+        <button>
+            <a 
+            href="{% url 'accounts:user' %}" 
+            class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 md:mx-14 mx-5 py-3 md:px-14 px-6 text-center font-sans font-bold border">
+            Users
+            </a>
+        </button>
+        <button>
+            <a 
+            href="{% url 'accounts:signup' %}" 
+            class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:px-10 px-3 text-center font-sans font-bold border">
+            Sign Up Users
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock  %}

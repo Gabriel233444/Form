@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+
+{% block contents %} 
+<div class="my-32 md:mx-80 mx-12 p-5 bg-white rounded-lg">
+    {% if request.user.is_authenticated and request.user.is_staff %}
+    <p class="font-sans font-bold text-black text-center">
+    Are you sure you want to delete {{ admin_delete.username }}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <button 
+        type="submit"
+        class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 px-14 text-center font-sans font-bold border">
+        Delete
+        </button>
+    </form>
+    {% else %}
+        <!-- Content for non-admin users or users not logged in -->
+        <p>You don't have permission to access this content.</p>
+        <!-- Add more content for non-admin users here -->
+    {% endif %}
+</div>
+{% endblock %} 

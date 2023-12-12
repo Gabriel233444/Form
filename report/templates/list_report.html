@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+
+{% block contents  %}
+<div class="my-32 md:mx-80 mx-12 p-5 bg-white rounded-lg">
+    {% if report %}
+    <div class="mx-5">
+        {% for rep in report %}
+        <h1 class="text-3xl text-center font-sans font-extrabold">WEEKLY REPORT</h1>
+        <br/>
+        <li class="font-sans font-bold text-black text-left">
+            Report by : {{ rep.user }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Supervisor : {{ rep.supervisor }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">TOPICS COVERED FOR EACH DAY OF THE WEEK</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Monday : {{ rep.monday }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Tuesday : {{ rep.tuesday }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Wednessday : {{ rep.wednessday }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Thursday : {{ rep.thursday }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Friday : {{ rep.friday }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">ASSIGNMENT GIVEN FOR EACH DAY OF THE WEEK</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Monday : {{ rep.monday1 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Tuesday : {{ rep.tuesday1 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Wednessday : {{ rep.wednessday1 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Thursday : {{ rep.thursday1 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Friday : {{ rep.friday1 }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">PROJECTS GIVEN FOR THE WEEK</h3>
+        <li class="font-sans font-bold text-black text-left">
+            {{ rep.projects }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">NOTE/STUDY MATERIALS GIVEN TO THE STUDENT FOR THE WEEK</h3>
+        <li class="font-sans font-bold text-black text-left">
+            {{ rep.study_materials }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">SUCCESS RATING FOR THE WEEK</h3>
+        <li class="font-sans font-bold text-black text-left">
+            {{ rep.rating }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">CHALLENGES FACED ON DUTY</h3>
+        <li class="font-sans font-bold text-black text-left">
+            {{ rep.challenges }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">DAILY RESUMPTION TIME</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Monday : {{ rep.monday2 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Tuesday : {{ rep.tuesday2 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Wednessday : {{ rep.wednessday2 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Thursday : {{ rep.thursday2 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Friday : {{ rep.friday2 }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">SOCIAL MEDIA POSTING</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Whatsapp : {{ rep.whatsapp }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Facebook : {{ rep.facebook }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Twitter : {{ rep.twitter }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Instagram : {{ rep.instagram }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">TOPICS FOR NEXT WEEK</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Monday : {{ rep.monday3 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Tuesday : {{ rep.tuesday3 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Wednessday : {{ rep.wednessday3 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Thursday : {{ rep.thursday3 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Friday : {{ rep.friday3 }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">SUGGESTIONS TO MANAGEMENT</h3>
+        <li class="font-sans font-bold text-black text-left">
+            {{ rep.sugestions }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">DURATION REMAINING FOR TRAINING</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Weeks : {{ rep.total_weeks }}</li>
+        <br/>
+        <h3 class="text-lg font-sans font-extrabold">PARTICIPATION IN STAFF WHATSAPP GROUP</h3>
+        <li class="font-sans font-bold text-black text-left">
+            Monday : {{ rep.monday4 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Tuesday : {{ rep.tuesday4 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Wednessday : {{ rep.wednessday4 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Thursday : {{ rep.thursday4 }}</li>
+        <li class="font-sans font-bold text-black text-left">
+            Friday : {{ rep.friday4 }}</li>
+        <br/>
+        <div class="md:flex">
+            <button class="my-10">
+                <a 
+                href="{% url 'report:update_report' pk=rep.id %}" 
+                class="bg-blue-900 text-white text-sm md:rounded-2xl rounded-2xl mt-3 py-3 md:px-10 px-10 text-center font-sans font-bold border">
+                Update
+                </a>
+            </button>
+            <button>
+                <a 
+                href="{% url 'report:delete_report' pk=rep.id %}" 
+                class="bg-blue-900 text-white text-sm md:rounded-2xl rounded-2xl mt-3 py-3 md:px-10 px-10 text-center font-sans font-bold border">
+                Delete
+                </a>
+            </button>
+            <button>
+                <a 
+                href="{% url 'report:pdf_view' %}"
+                class="bg-blue-900 text-white text-sm md:rounded-2xl rounded-2xl mt-3 py-3 md:px-10 px-10 text-center font-sans font-bold border">
+                Send
+                </a>
+            </button>
+            <button>
+                <a 
+                href="{% url 'report:pdf_download' %}"
+                class="bg-blue-900 text-white text-sm md:rounded-2xl rounded-2xl mt-3 py-3 md:px-10 px-10 text-center font-sans font-bold border">
+                Download
+                </a>
+            </button>
+        </div>
+        <br/>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No data here</p>
+    {% endif %}
+    <br/>
+    <div class="">
+        <button>
+            <a 
+            href="{% url 'accounts:logout' %}" 
+            class="bg-blue-900 text-white text-sm md:rounded-2xl rounded-2xl mt-3 py-3 md:px-14 px-10 text-center font-sans font-bold border">
+            Logout
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock  %}

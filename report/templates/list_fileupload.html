@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+
+{% block contents  %}
+<div class="my-32 md:mx-80 mx-10 p-5 bg-white rounded-lg">
+    {% if fileupload %}
+        <h1 class="text-3xl text-center font-sans font-extrabold">UPLOADED WEEKLY REPORT</h1>
+        <br />
+        {% for file in fileupload %}
+        <div class="md:mx-5 md:my-10 md:flex">
+            <br/>
+            <h4 
+            class="font-sans font-bold text-black text-left w-44">
+            {{ file.files.name }}
+            </h4>
+            <br/>
+            <div class="mx-2 flex">
+                <button class="mx-4">
+                    <a 
+                    href="{% url 'report:update_fileupload' pk=file.id %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:px-14 px-10 text-center font-sans font-bold border">
+                    Update
+                    </a>
+                </button>
+                <button class="mx-4">
+                    <a href="{% url 'report:delete_fileupload' pk=file.id %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:px-14 px-10 text-center font-sans font-bold border">
+                    Delete
+                    </a>
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+        <br/>
+        <br/>
+        <div class="">
+            <button>
+                <a href="{% url 'accounts:logout' %}" 
+                class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 md:px-14 px-10 text-center font-sans font-bold border">
+                Logout
+                </a>
+            </button>
+        </div>
+    {% else %}
+    <p>No data here</p>
+    {% endif %}
+</div>
+{% endblock  %}

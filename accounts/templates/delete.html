@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+
+{% block contents %} 
+<div class="my-32 md:mx-80 mx-12 p-5 bg-white rounded-lg">
+    <p 
+    class="font-sans font-bold text-black text-center">
+    Are you sure you want to delete {{ user_delete.username }}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <button 
+        type="submit"
+        class="bg-blue-900 text-white text-sm rounded-lg mt-3 py-3 px-14 text-center font-sans font-bold border">
+        Delete
+        </button>
+    </form>
+</div>
+{% endblock %} 

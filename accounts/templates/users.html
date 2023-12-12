@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+
+{% block contents %} 
+<div class="my-32 md:mx-80 mx-12 p-5 bg-white rounded-lg">
+    <ul>
+        {% if request.user.is_authenticated %}
+        <div>
+            {% for user in users %}
+            <li
+            class="font-sans font-bold text-black text-left">
+            User Name : {{ user.username}}
+            </li>
+            <li
+            class="font-sans font-bold text-black text-left">
+            Email : {{ user.email}}
+            </li>
+            <li 
+            class="font-sans font-bold text-black text-left">
+            Passowrd : *******************
+            </li>
+            <br/>
+            <div class="flex">
+                <button>
+                    <a 
+                    href="{% url 'accounts:update' pk=user.id %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 mr-5 py-3 md:px-14 px-5 text-center font-sans font-bold border">
+                    Update
+                    </a>
+                </button>
+                <button>
+                    <a 
+                    href="{% url 'accounts:delete' pk=user.id %}" 
+                    class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 ml-5 py-3 md:px-14 p-5 text-center font-sans font-bold border">
+                    Delete
+                    </a>
+                </button>
+            </div>
+            <br/>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %} 

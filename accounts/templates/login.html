@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+
+{% block contents %} 
+<div class="my-32 md:mx-80 mx-12 md:p-5 bg-white rounded-lg">
+    <br/>
+    <h1 class="text-3xl text-center font-sans font-extrabold">LOG IN</h1>
+    <form method="post" class="md:mx-16">
+        {% csrf_token %}
+        <div class="my-5 md:mx-24 mx-16 py-5">
+            <label 
+            class="font-sans font-bold text-black text-left" for="username">Username :
+                <input 
+                class="md:rounded rounded-2xl px-10" 
+                id="username" 
+                placeholder="Username"
+                type="text"  
+                name="username">
+            </label>
+            <br/>
+            <br/>
+            <label 
+            class="font-sans font-bold text-black text-left" for="password">Password :
+                <input 
+                class="md:rounded rounded-2xl px-10"
+                id="password" 
+                placeholder="Password"
+                type="password"  
+                name="password">
+            </label>
+            <br/>
+            <br/>
+            <button 
+            class="bg-blue-900 text-white text-sm md:rounded-lg rounded-2xl mt-3 py-3 px-14 text-center font-sans font-bold border" 
+            type="submit"
+            >Sign in
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %} 

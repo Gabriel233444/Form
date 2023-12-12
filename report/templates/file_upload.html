@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+
+{% block contents %}
+<div class="my-32 md:mx-80 mx-10 p-5 bg-white rounded-lg">
+    <h1 class="text-3xl text-center font-sans font-extrabold">UPLOAD WEEKLY REPORT</h1>
+    <br/>
+    <br/>
+    <form method="post" enctype="multipart/form-data" class="md:w-1/2 mx-auto">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="{{ form.user.id_for_label }}" class="block text-lg font-bold text-black">Report by:</label>
+            {{ form.user }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.files.id_for_label }}" class="block text-lg font-bold text-black">Files:</label>
+            {{ form.files }}
+        </div>
+        <button type="submit" class="bg-blue-900 text-white text-sm md:rounded-2xl rounded-2xl mt-3 py-3 md:px-10 px-10 text-center font-sans font-bold border">
+            Upload
+        </button>
+    </form>
+</div>
+{% endblock %}
