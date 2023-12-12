@@ -59,8 +59,8 @@ class UserList(LoginRequiredMixin, ListView):
     context_object_name = 'users'
     login_url ='/login'
 
+    # Filter the queryset to include only normal users
     def get_queryset(self):
-        # Filter the queryset to include only normal users
         return User.objects.filter(is_staff=False)
 
 class UpdateUser(LoginRequiredMixin, UpdateView):
@@ -69,7 +69,6 @@ class UpdateUser(LoginRequiredMixin, UpdateView):
     form_class = UserUpdatForm
     success_url = '/user'
     login_url ='/login'
-    success_message = 'user updated successfully'
     
 class DeleteUser( LoginRequiredMixin, DeleteView):
     template_name = 'delete.html'
@@ -77,13 +76,11 @@ class DeleteUser( LoginRequiredMixin, DeleteView):
     context_object_name = 'user_delete'
     success_url = '/user'
     login_url ='/login'
-    success_message = 'user deleted successfully'
         
 class CreateAdminUser(CreateView):
     template_name = 'admin_signup.html'
     queryset = User.objects.all()
     form_class = AdminCreateForm
-    success_message = 'create admin user successfully'
     
     def post(self, request, *args, **kwargs):
         if request.method == 'POST':
@@ -110,7 +107,7 @@ class LoginAdminUser(CreateView):
             login(request, user)
             return redirect('/view')
         else:
-            return HttpResponse({'Admin User Not Found'})
+            return HttpResponse('details : Admin User Not Found')
     
 def LogoutAdminUser(request):
     logout(request)
@@ -125,8 +122,8 @@ class AdminProfileList(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def test_func(self):
         return is_admin(self.request.user)
     
+    # Filter the queryset to include only admin users
     def get_queryset(self):
-        # Filter the queryset to include only admin users
         return User.objects.filter(is_staff=True)
     
 class UpdateAdminUser(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
