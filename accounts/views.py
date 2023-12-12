@@ -4,7 +4,6 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView, T
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 
 
